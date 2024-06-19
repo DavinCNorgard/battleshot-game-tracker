@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Davin Norgard Home</title>
+    <link rel="stylesheet" href="styles_checklist.css">
+    <link rel="stylesheet" href="battleshot.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="link-wrapper">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="link-wrapper-drop">
+                    <button class="dropbtn">Projects</button>
+                    <div class="dropdown-content">
+                        <a href="Shift Cipher.html">Shift Cipher</a>
+                        <a href="JDFweather.html">Swell data analysis</a>
+                        <a href="Checklist.html">Checklist</a>
+                        <a href="battleshot.html">battleshot</a>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="link-wrapper">
+                    <a href="interests.html">Interests</a>
+                </div>
+
+                <div class="link-wrapper">
+                    <a href="https://drive.google.com/file/d/16MBINibhTOT-x7EYdUYxIENTlfwYbvMR/view?usp=sharing">Resume</a>
+                </div>
+
+                <div class="link-wrapper">
+                    <a href="https://github.com/DavinCNorgard">github</a>
+                </div>
+
+            </div>
+            <div class="right-side">
+                <div class="brand">
+                    <div>Davin Norgard</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="title">
+                Battle Shot Tracker
+            </div>
+           
+            <div id="app" class="app">
+                <div v-for="(row, rowIndex) in board" :key="rowIndex" class="row">
+                    <div 
+                        v-for="(cell, colIndex) in row" 
+                        :key="colIndex" 
+                        class="cell"
+                        :class="{'header': rowIndex === 0 || colIndex === 0, 'hit': cell === 'hit', 'miss': cell === 'miss', 'water': cell === 'water' && rowIndex !== 0 && colIndex !== 0}"
+                        @click="setMove(rowIndex, colIndex)"
+                    >
+                        {{ cell }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="battleshot.js"></script>
+    <style src="battleshot.css"></style>
+</body>
+
+
+</html>
